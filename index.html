@@ -4,9 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Will You Marry Me?</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Poppins', sans-serif;
       min-height: 100vh;
@@ -16,6 +19,7 @@
       justify-content: center;
       overflow: hidden;
     }
+
     .container {
       background: rgba(255, 255, 255, 0.9);
       border-radius: 24px;
@@ -24,20 +28,22 @@
       width: 90%;
       text-align: center;
       box-shadow: 0 30px 80px rgba(0,0,0,0.15);
-      position: relative;
       animation: fadeIn 1.5s ease;
     }
+
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 32px;
       color: #c9184a;
       margin-bottom: 12px;
     }
+
     .subtitle {
       font-size: 14px;
       color: #555;
       margin-bottom: 28px;
     }
+
     .heart {
       width: 90px;
       height: 90px;
@@ -47,7 +53,9 @@
       transform: rotate(-45deg);
       animation: pulse 1.4s infinite;
     }
-    .heart::before, .heart::after {
+
+    .heart::before,
+    .heart::after {
       content: '';
       width: 90px;
       height: 90px;
@@ -55,10 +63,11 @@
       border-radius: 50%;
       position: absolute;
     }
+
     .heart::before { top: -45px; left: 0; }
     .heart::after { left: 45px; top: 0; }
 
-    p.message {
+    .message {
       font-size: 15px;
       color: #333;
       line-height: 1.7;
@@ -77,6 +86,7 @@
       gap: 16px;
       justify-content: center;
     }
+
     button {
       border: none;
       padding: 12px 22px;
@@ -85,35 +95,27 @@
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     button:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
+
     .yes {
       background: linear-gradient(135deg, #ff4d6d, #c9184a);
       color: #fff;
     }
+
     .no {
       background: #f1f1f1;
       color: #555;
-      position: relative;
     }
 
     .result {
       margin-top: 28px;
-      font-size: 18px;
+      font-size: 20px;
       color: #c9184a;
       display: none;
-    }
-
-    @keyframes pulse {
-      0% { transform: rotate(-45deg) scale(1); }
-      50% { transform: rotate(-45deg) scale(1.1); }
-      100% { transform: rotate(-45deg) scale(1); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .floating-heart {
@@ -124,35 +126,52 @@
       animation: floatUp 6s linear infinite;
       opacity: 0.8;
     }
+
+    @keyframes pulse {
+      0% { transform: rotate(-45deg) scale(1); }
+      50% { transform: rotate(-45deg) scale(1.1); }
+      100% { transform: rotate(-45deg) scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @keyframes floatUp {
       from { transform: translateY(0); opacity: 1; }
       to { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>Hey Love ❤️</h1>
     <div class="subtitle">I have something important to ask you…</div>
+
     <div class="heart"></div>
+
     <p class="message">
       I don’t want a perfect life, just a life with you.<br>
       Every love story is beautiful, but ours is my favorite.
     </p>
+
     <div class="question">Will you marry me?</div>
+
     <div class="buttons">
-      <button class="yes" onclick="showImage()">Yes 💍</button>
+      <button class="yes" onclick="showResult()">Yes 💍</button>
       <button class="no" onmouseover="moveNo(this)">No 🙈</button>
     </div>
+
     <div class="result" id="result">
-      <p style="margin-top:16px; font-size:20px;">She said YES! 💖💍</p>
+      She said YES! 💖💍
     </div>
   </div>
 
   <script>
-    function showImage() {
-      const result = document.getElementById('result');
-      result.style.display = 'block';
+    function showResult() {
+      document.getElementById('result').style.display = 'block';
       createHearts();
     }
 
